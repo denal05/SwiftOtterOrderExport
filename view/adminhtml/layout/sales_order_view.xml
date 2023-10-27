@@ -2,7 +2,12 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block name="order_export" template="Denal05_SwiftOtterOrderExport::export-view.phtml"/>
+            <block name="order.export" template="Denal05_SwiftOtterOrderExport::export.phtml">
+                <arguments>
+                    <argument name="details" xsi:type="object">Denal05\SwiftOtterOrderExport\ViewModel\OrderDetails</argument>
+                </arguments>
+            </block>
+            <block name="order.export.status" template="Denal05_SwiftOtterOrderExport::status.phtml" after="order.export"/>
         </referenceContainer>
     </body>
 </page>
