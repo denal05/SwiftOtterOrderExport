@@ -2,7 +2,8 @@
     "name": "denal05/module-swift-otter-order-export",
     "description": "A Magento 2 module built as an exercise for the SwiftOtter \"Prep Course for Adobe Certified Professional Developer (AD0-E702)\" by Joseph Maxwell.",
     "require": {
-        "php": "^7.3"
+        "php": "^7.3",
+        "magento/module-sales": "103.0.*"
     },
     "type": "magento2-module",
     "license": [
@@ -13,5 +14,6 @@
         "psr-4": {
             "Denal05\\SwiftOtterOrderExport\\": ""
         }
-    }
+    },
+    "version": "1.0"
 }
