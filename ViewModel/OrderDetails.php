@@ -5,12 +5,15 @@ namespace Denal05\SwiftOtterOrderExport\ViewModel;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\RequestInterface;
+use Magento\Framework\AuthorizationInterface;
 use Magento\Framework\Data\Form\FormKey;
 use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 
 class OrderDetails implements ArgumentInterface
 {
+    const ADMIN_RESOURCE = 'Denal05_SwiftOtterOrderExport::OrderExport';
+
     /** @var ScopeConfigInterface */
     private ScopeConfigInterface $scopeConfig;
     /** @var FormKey */
@@ -19,23 +22,28 @@ class OrderDetails implements ArgumentInterface
     private UrlInterface $urlBuilder;
     /** @var RequestInterface */
     private RequestInterface $request;
+    /** @var AuthorizationInterface */
+    private AuthorizationInterface $authorization;
 
     /**
      * @param ScopeConfigInterface $scopeConfig
      * @param FormKey $formKey
      * @param UrlInterface $urlInterface
      * @param RequestInterface $request
+     * @param AuthorizationInterface $authorization
      */
     public function __construct(
         ScopeConfigInterface $scopeConfig,
         FormKey $formKey,
         UrlInterface $urlInterface,
         RequestInterface $request,
+        AuthorizationInterface $authorization,
     ) {
         $this->scopeConfig = $scopeConfig;
         $this->formKey = $formKey;
         $this->urlBuilder = $urlInterface;
         $this->request = $request;
+        $this->authorization = $authorization;
     }
 
     /**
@@ -43,7 +51,8 @@ class OrderDetails implements ArgumentInterface
      */
     public function isAllowed(): bool
     {
-        return $this->scopeConfig->isSetFlag('swiftotterorderexport/order_export/enabled');
+        return $this->scopeConfig->isSetFlag('swiftotterorderexport/order_export/enabled')
+            && $this->authorization->isAllowed(self::ADMIN_RESOURCE);
     }
 
     /**
