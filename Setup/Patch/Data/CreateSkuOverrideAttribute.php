@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace Denal05\SwiftOtterOrderExport\Setup\Patch\Data;
 
 use Denal05\SwiftOtterOrderExport\Attributes;
+use Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface;
 use Magento\Eav\Setup\EavSetup;
 use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
@@ -52,28 +53,30 @@ class CreateSkuOverrideAttribute implements DataPatchInterface
             \Magento\Catalog\Model\Product::ENTITY,
             Attributes::SKU_OVERRIDE_ATTRIBUTE,
             [
-                'wysiwyg_enabled' => false,
-                'html_allowed_on_front' => false,
-                'used_for_sort_by' => false,
-                'filterable' => false,
-                'filterable_in_search' => false,
-                'used_in_grid' => false,
-                'visible_in_grid' => false,
-                'filterable_in_grid' => false,
-                'position' => 0,
                 'apply_to' => 'simple,virtual',
-                'searchable' => false,
-                'visible_in_advanced_search' => false,
                 'comparable' => false,
-                'used_for_promo_rules' => false,
-                'visible_on_front' => false,
-                'used_in_product_listing' => true,
-                'visible' => false,
-                'scope' => 'global',
+                'filterable' => false,
+                'filterable_in_grid' => false,
+                'filterable_in_search' => false,
+                'html_allowed_on_front' => false,
                 'input' => 'text',
-                'required' => false,
                 'label' => 'SKU Override',
+                'position' => 0,
+                'required' => false,
+                'scope' => ScopedAttributeInterface::SCOPE_WEBSITE,
+                'searchable' => false,
+                'sort_order' => 70,
                 'type' => 'varchar',
+                'used_for_promo_rules' => false,
+                'used_for_sort_by' => false,
+                'used_in_grid' => false,
+                'used_in_product_listing' => true,
+                'user_defined' => false,
+                'visible' => false,
+                'visible_in_advanced_search' => false,
+                'visible_in_grid' => false,
+                'visible_on_front' => false,
+                'wysiwyg_enabled' => false,
             ]
         );
     }
