@@ -14,7 +14,6 @@ class Orchestrator
     public function __construct(
         TransformOrderToArray $orderToArray
     ) {
-
         $this->orderToArray = $orderToArray;
     }
 
