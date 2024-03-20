@@ -3,7 +3,7 @@
     <type name="Denal05\SwiftOtterOrderExport\Action\TransformOrderToArray">
         <arguments>
             <argument name="dataCollectors" xsi:type="array">
-                <item name="header_data" xsi:type="object"></item>
+                <item name="header_data" xsi:type="object">\Denal05\SwiftOtterOrderExport\Collector\HeaderData</item>
             </argument>
         </arguments>
     </type>
