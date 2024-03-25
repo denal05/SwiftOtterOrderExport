@@ -8,7 +8,6 @@ use Denal05\SwiftOtterOrderExport\Action\TransformOrderToArray;
 use Denal05\SwiftOtterOrderExport\Model\HeaderData;
 use Magento\Framework\Exception\NoSuchEntityException;
 //use Magento\Webapi\Controller\Rest\RequestValidator;
-use PHPUnit\Exception;
 use Psr\Log\LoggerInterface;
 
 class Orchestrator
@@ -53,7 +52,7 @@ class Orchestrator
         } catch (NoSuchEntityException $exception) {
             $results['error'] = (string) $exception->getMessage(); // NoSuchEntityException
             $results['success'] = false;
-        } catch (Exception $exception) {
+        } catch (\Exception $exception) {
             $this->logger->error($exception->getMessage(), [
                 'trace' => $exception->getTraceAsString()
             ]);
