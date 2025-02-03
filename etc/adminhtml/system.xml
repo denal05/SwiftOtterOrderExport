@@ -23,9 +23,17 @@
                     <label>Order Export Is Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="password" translate="label" type="obscure" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="password" translate="label" type="obscure" sortOrder="2"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>API Key</label>
                     <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="dummy_file_extension" translate="label" type="text" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Dummy file extension (not used)</label>
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
