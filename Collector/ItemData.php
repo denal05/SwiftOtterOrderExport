@@ -74,7 +74,7 @@ class ItemData implements DataCollectorInterface
         $collection = $this->productCollectionFactory->create();
         $collection->addFieldToFilter('entity_id', ['eq' => $productId]);
 
-        // @TODO Set a breakpoint inside the __toString method and observer the SQL query.
+        // @TODO Set a breakpoint inside the __toString method and observe the SQL query.
         // echo (string) $collection->getSelect()->__toString();
 
         /** @var Product $product */

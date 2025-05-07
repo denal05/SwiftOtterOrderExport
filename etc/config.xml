@@ -6,11 +6,31 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
-    <default><!-- scope? -->
+    <default><!-- scope -->
+
+        <!-- custom field -->
         <swiftotterorderexport><!-- section -->
-            <order_export><!-- group ID-->
+            <order_export><!-- group ID -->
                 <dummy_file_extension>.html</dummy_file_extension>
             </order_export>
         </swiftotterorderexport>
+
+        <!-- override admin value in global scope -->
+        <general>
+            <store_information>
+                <phone>111-111-1111</phone>
+            </store_information>
+        </general>
     </default>
+
+    <websites>
+        <base>
+            <!-- override admin value in website scope -->
+            <general>
+                <store_information>
+                    <phone>222-222-2222</phone>
+                </store_information>
+            </general>
+        </base>
+    </websites>
 </config>
